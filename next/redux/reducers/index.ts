@@ -8,10 +8,7 @@ import userReducer from './userReducer.ts'
 
 const rootReducer = combineReducers({
     adminReducer,
-    basicReducer,
     boardReducer,
-    gameReducer,
-    todoReducer,
     userReducer 
 })
 export default rootReducer

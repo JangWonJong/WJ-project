@@ -10,4 +10,3 @@ export default function BoardModel(mongoose){
 )
     return mongoose.model('Board', boardSchema)
 }
-

@@ -8,7 +8,6 @@ import basicRouter from './app/routes/basic.js'
 import boardRouter from './app/routes/board.js'
 import todoRouter from './app/routes/todo.js'
 import userRouter from './app/routes/user.js'
-import ResponseService from './app/services/responseService.js'
 import morgan from 'morgan'
 
 
@@ -47,14 +46,12 @@ async function startServer() {
             process.exit();
         })
         app.all("*", function(_req, res) {
-            return ResponseService().notFoundResponse(res, "페이지를 찾을 수 없습니다");
+            return responseService.notFoundResponse(res, "페이지를 찾을 수 없습니다");
           });
           
           app.use((err, _req, res) => {
             if(err.name == "UnauthorizedError"){
-              
-              return ResponseService().unauthorizedResponse(res,err.message)
-              //return responseService.unauthorizedResponse(res, err.message);
+              return responseService.unauthorizedResponse(res, err.message);
             }
           });
 
